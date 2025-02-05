@@ -2,6 +2,8 @@
 void setup() {
   // initialize serial communication at 9600 bits per second:
   Serial.begin(9600);
+
+  pinMode(2 OUTPUT);
 }
 
 // the loop routine runs over and over again forever:
@@ -10,5 +12,15 @@ void loop() {
   int knobValue = analogRead(A0);
    // print out the value you read:
   Serial.println(knobValue);
+
+  if (knobValue > 400)
+  {
+    digitalWrite(2, HIGH);
+  }
+
+  if (knobValue <= 400)
+  {
+    digitalWrite(2, LOW);
+  }
 
 }
